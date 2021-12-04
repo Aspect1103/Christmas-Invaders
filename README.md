@@ -1,1 +1,1 @@
-A Christmas themed Space Invaders game made for a game jam.
+A Christmas themed Space Invaders game made for a Holiday themed game jam.
