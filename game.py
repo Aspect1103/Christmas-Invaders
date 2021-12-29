@@ -36,7 +36,7 @@ class Game:
         # Initialise pygame
         self.doInitialisation()
         self.running = True
-        self.player = Player(self)
+        self.player = Player()
         self.player.rect.center = (self.display.get_width()/2, self.display.get_height()-100)
         self.allSprites.add(self.player)
         # Start the game loop
@@ -71,7 +71,7 @@ class Game:
 
     def spawnEnemy(self) -> None:
         """Spawns an enemy at a random position at the top."""
-        present = Present(self)
+        present = Present()
         possiblePos = (random.randint(50, self.display.get_width() - 150), 25)
         present.rect.x, present.rect.y = possiblePos
         self.presents.add(present)
@@ -89,7 +89,7 @@ class Game:
                 self.running = False
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    rocket = Rocket(self)
+                    rocket = Rocket()
                     rocket.rect.center = self.player.rect.midtop
                     self.rockets.add(rocket)
                     self.allSprites.add(rocket)
@@ -125,7 +125,7 @@ class Game:
 
 
 class Present(pygame.sprite.Sprite):
-    def __init__(self, gameTemp: Game) -> None:
+    def __init__(self) -> None:
         """Initialises a Present object."""
         pygame.sprite.Sprite.__init__(self)
         self.game: Game = game
@@ -139,7 +139,7 @@ class Present(pygame.sprite.Sprite):
 
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, gameTemp: Game) -> None:
+    def __init__(self) -> None:
         """Initialises a Player object."""
         pygame.sprite.Sprite.__init__(self)
         self.game: Game = game
@@ -156,7 +156,7 @@ class Player(pygame.sprite.Sprite):
 
 
 class Rocket(pygame.sprite.Sprite):
-    def __init__(self, gameTemp: Game) -> None:
+    def __init__(self) -> None:
         """Initialises a Rocket object."""
         pygame.sprite.Sprite.__init__(self)
         self.game: Game = game
